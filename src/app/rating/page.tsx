@@ -36,19 +36,19 @@ export default function RatingPage() {
                     {player.name}
                   </h3>
                 </div>
-                <span className="rounded-full bg-[var(--color-clay-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-clay)]">
+                <span className="rounded-full border border-[rgba(227,100,61,0.18)] bg-[rgba(227,100,61,0.18)] px-3 py-1 text-xs font-semibold text-[var(--color-clay-ink)]">
                   {player.rating}
                 </span>
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--color-muted)]">
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {player.city}
                 </span>
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {player.side}
                 </span>
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {player.winRate}
                 </span>
               </div>

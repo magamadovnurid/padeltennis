@@ -9,8 +9,10 @@
   --color-ink: #10212b;
   --color-court: #0c7c59;
   --color-court-soft: rgba(12, 124, 89, 0.12);
+  --color-court-ink: #084e3a;
   --color-clay: #e3643d;
   --color-clay-soft: rgba(227, 100, 61, 0.14);
+  --color-clay-ink: #972f11;
   --color-muted: #4c5a64;
   --color-line: rgba(16, 33, 43, 0.12);
   --safe-bottom: env(safe-area-inset-bottom, 0px);

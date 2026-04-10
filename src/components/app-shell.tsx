@@ -42,7 +42,7 @@ export function AppShell({
               {meta.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-white px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)] shadow-[0_8px_20px_rgba(16,33,43,0.05)]"
+                  className="rounded-full border border-white/50 bg-white/78 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)] shadow-[0_8px_20px_rgba(16,33,43,0.05)] backdrop-blur"
                 >
                   {item}
                 </span>

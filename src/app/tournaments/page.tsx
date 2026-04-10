@@ -22,7 +22,7 @@ export default function TournamentsPage() {
                   </p>
                   <h2 className="mt-2 text-xl font-semibold">{tournament.title}</h2>
                 </div>
-                <span className="rounded-full bg-white/14 px-3 py-1 text-xs font-semibold text-white/95">
+                <span className="rounded-full border border-white/14 bg-white/18 px-3 py-1 text-xs font-semibold text-white">
                   {tournament.format}
                 </span>
               </div>

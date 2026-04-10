@@ -41,7 +41,7 @@ export function AuthCard() {
             </p>
             <h2 className="mt-2 text-xl font-semibold text-[var(--color-ink)]">Вход</h2>
           </div>
-          <span className="rounded-full bg-[var(--color-court-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-court)]">
+          <span className="rounded-full border border-[rgba(12,124,89,0.16)] bg-[rgba(12,124,89,0.16)] px-3 py-1 text-xs font-semibold text-[var(--color-court-ink)]">
             Active
           </span>
         </div>

@@ -15,7 +15,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-0 bottom-[calc(12px+var(--safe-bottom))] z-30 mx-auto w-[calc(100%-24px)] max-w-[406px] rounded-[28px] border border-white/12 bg-[rgba(10,20,29,0.98)] px-2 py-2 shadow-[0_24px_60px_rgba(16,33,43,0.32)] backdrop-blur-xl">
+    <nav className="fixed inset-x-0 bottom-[calc(12px+var(--safe-bottom))] z-30 mx-auto w-[calc(100%-24px)] max-w-[406px] rounded-[28px] border border-white/16 bg-[rgba(10,20,29,0.56)] px-2 py-2 shadow-[0_24px_60px_rgba(16,33,43,0.24)] backdrop-blur-2xl">
       <ul className="grid grid-cols-5 gap-1">
         {navItems.map((item) => {
           const isActive =
@@ -28,12 +28,20 @@ export function BottomNav() {
                 href={item.href}
                 className={`flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[0.72rem] font-semibold transition ${
                   isActive
-                    ? "bg-[var(--color-clay)] text-white shadow-[0_10px_24px_rgba(227,100,61,0.28)]"
-                    : "bg-white/8 text-[#f3f6f8] hover:bg-white/12"
+                    ? "bg-[rgba(227,100,61,0.92)] text-white shadow-[0_10px_24px_rgba(227,100,61,0.28)]"
+                    : "bg-transparent text-white/95 hover:bg-white/10"
                 }`}
               >
                 <NavIcon name={item.icon} active={isActive} />
-                <span className="leading-none">{item.label}</span>
+                <span
+                  className={
+                    isActive
+                      ? "leading-none text-white"
+                      : "leading-none text-white/95"
+                  }
+                >
+                  {item.label}
+                </span>
               </Link>
             </li>
           );
@@ -50,7 +58,7 @@ function NavIcon({
   name: (typeof navItems)[number]["icon"];
   active: boolean;
 }) {
-  const stroke = active ? "#ffffff" : "#f3f6f8";
+  const stroke = active ? "#ffffff" : "rgba(255,255,255,0.95)";
 
   switch (name) {
     case "home":

@@ -38,21 +38,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
-          <div className="mt-5 flex gap-2">
-            <Link
-              href="/matches"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-[var(--color-ink)]"
-            >
-              Матчи
-            </Link>
-            <Link
-              href="/auth"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur"
-            >
-              Войти
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -84,19 +69,19 @@ export default function HomePage() {
                     {tournament.title}
                   </h3>
                 </div>
-                <span className="rounded-full bg-[var(--color-clay-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-clay)]">
+                <span className="rounded-full border border-[rgba(227,100,61,0.18)] bg-[rgba(227,100,61,0.18)] px-3 py-1 text-xs font-semibold text-[var(--color-clay-ink)]">
                   {tournament.format}
                 </span>
               </div>
 
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-[var(--color-muted)]">
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {tournament.date}
                 </span>
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {tournament.level}
                 </span>
-                <span className="rounded-full bg-[var(--color-panel)] px-3 py-1">
+                <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-panel)] px-3 py-1 text-[var(--color-ink)]">
                   {tournament.club}
                 </span>
               </div>
