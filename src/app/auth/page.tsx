@@ -3,7 +3,7 @@ import { AuthCard } from "@/components/auth-card";
 
 export default function AuthPage() {
   return (
-    <AppShell eyebrow="Access" title="Вход" meta={["Email", "MAX"]}>
+    <AppShell eyebrow="Аккаунт" title="Вход" meta={["Email", "MAX"]}>
       <AuthCard />
     </AppShell>
   );

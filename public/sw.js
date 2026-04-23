@@ -1,4 +1,4 @@
-const CACHE_NAME = "padel-next-point-v1";
+const CACHE_NAME = "padel-next-point-v2";
 const APP_SHELL = [
   "/",
   "/auth",
@@ -16,7 +16,20 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter(
+              (key) => key.startsWith("padel-next-point") && key !== CACHE_NAME,
+            )
+            .map((key) => caches.delete(key)),
+        ),
+      )
+      .then(() => self.clients.claim()),
+  );
 });
 
 self.addEventListener("fetch", (event) => {
@@ -30,13 +43,9 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request)
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
         .then((networkResponse) => {
           const responseClone = networkResponse.clone();
 
@@ -46,7 +55,30 @@ self.addEventListener("fetch", (event) => {
 
           return networkResponse;
         })
-        .catch(() => caches.match("/"));
+        .catch(() =>
+          caches
+            .match(event.request)
+            .then((cached) => cached || caches.match("/")),
+        ),
+    );
+
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      const networkFetch = fetch(event.request)
+        .then((networkResponse) => {
+          const responseClone = networkResponse.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+
+          return networkResponse;
+        });
+
+      return cachedResponse || networkFetch;
     }),
   );
 });

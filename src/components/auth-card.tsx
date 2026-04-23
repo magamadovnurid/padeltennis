@@ -32,35 +32,37 @@ export function AuthCard() {
   };
 
   return (
-    <section className="grid gap-4">
-      <article className="rounded-[30px] bg-white/88 p-5 shadow-[0_18px_40px_rgba(16,33,43,0.08)]">
-        <div className="flex items-start justify-between gap-3">
+    <section className="grid gap-3">
+      <article className="app-card p-4">
+        <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Email
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              Аккаунт
             </p>
-            <h2 className="mt-2 text-xl font-semibold text-[var(--color-ink)]">Вход</h2>
+            <h2 className="mt-1 text-xl font-black text-[var(--color-ink)]">
+              Вход
+            </h2>
           </div>
-          <span className="rounded-full border border-[rgba(12,124,89,0.16)] bg-[rgba(12,124,89,0.16)] px-3 py-1 text-xs font-semibold text-[var(--color-court-ink)]">
-            Active
+          <span className="ui-chip ui-chip--green">
+            Email
           </span>
         </div>
 
-        <form className="mt-5 grid gap-3" onSubmit={handleEmailLogin}>
+        <form className="mt-4 grid gap-3" onSubmit={handleEmailLogin}>
           <label className="grid gap-2">
-            <span className="text-sm font-medium text-[var(--color-ink)]">
+            <span className="text-sm font-bold text-[var(--color-ink)]">
               Имя
             </span>
             <input
               value={name}
               onChange={(event) => setName(event.target.value)}
               placeholder="Например, Нурид"
-              className="h-12 rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel)] px-4 outline-none transition focus:border-[var(--color-clay)]"
+              className="h-12 rounded-2xl border border-[var(--color-line)] bg-white/70 px-4 text-[var(--color-ink)] outline-none transition placeholder:text-[var(--color-muted)] focus:border-[var(--color-clay)]"
             />
           </label>
 
           <label className="grid gap-2">
-            <span className="text-sm font-medium text-[var(--color-ink)]">
+            <span className="text-sm font-bold text-[var(--color-ink)]">
               Email
             </span>
             <input
@@ -68,29 +70,29 @@ export function AuthCard() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="player@padel.app"
-              className="h-12 rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel)] px-4 outline-none transition focus:border-[var(--color-clay)]"
+              className="h-12 rounded-2xl border border-[var(--color-line)] bg-white/70 px-4 text-[var(--color-ink)] outline-none transition placeholder:text-[var(--color-muted)] focus:border-[var(--color-clay)]"
             />
           </label>
 
           <button
             type="submit"
             disabled={!canSubmit}
-            className="mt-2 inline-flex h-12 items-center justify-center rounded-full bg-[var(--color-clay)] px-5 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-45"
+            className="btn-primary mt-1 disabled:cursor-not-allowed disabled:opacity-45"
           >
             Войти по email
           </button>
         </form>
       </article>
 
-      <article className="rounded-[30px] bg-[var(--color-ink)] p-5 text-white shadow-[0_20px_48px_rgba(16,33,43,0.16)]">
-        <div className="flex items-start justify-between gap-3">
+      <article className="rounded-[28px] bg-[var(--color-ink)] p-4 text-white shadow-[var(--shadow-lift)]">
+        <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-white/74">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               MAX
             </p>
-            <h2 className="mt-2 text-xl font-semibold">Dev</h2>
+            <h2 className="mt-1 text-xl font-black">Быстрый вход</h2>
           </div>
-          <span className="rounded-full bg-white/14 px-3 py-1 text-xs font-semibold text-white/95">
+          <span className="rounded-full bg-white/14 px-3 py-1 text-xs font-black text-white">
             Mock
           </span>
         </div>
@@ -101,27 +103,27 @@ export function AuthCard() {
             signInWithMaxMock();
             router.push("/profile");
           }}
-          className="mt-5 inline-flex h-12 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-[var(--color-ink)]"
+          className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-5 text-sm font-black text-[var(--color-ink)]"
         >
           Войти через MAX
         </button>
       </article>
 
       {isReady && session ? (
-        <article className="rounded-[26px] border border-[var(--color-line)] bg-[var(--color-panel-strong)] p-4">
-          <p className="text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+        <article className="app-row p-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-muted)]">
             Сессия
           </p>
-          <h2 className="mt-2 text-lg font-semibold text-[var(--color-ink)]">
+          <h2 className="mt-2 text-lg font-black text-[var(--color-ink)]">
             {session.name}
           </h2>
-          <p className="mt-1 text-sm text-[var(--color-muted)]">
+          <p className="mt-1 text-sm font-medium text-[var(--color-muted)]">
             {session.email} · {session.provider.toUpperCase()}
           </p>
           <button
             type="button"
             onClick={signOut}
-            className="mt-4 inline-flex h-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-5 text-sm font-semibold text-[var(--color-ink)]"
+            className="btn-secondary mt-4"
           >
             Выйти
           </button>

@@ -95,22 +95,22 @@ export function InstallPrompt() {
 
   const title = useMemo(() => {
     if (platform === "ios") {
-      return "На экран домой";
+      return "На экран";
     }
 
-    return "Установить app";
+    return "Установить";
   }, [platform]);
 
   const description = useMemo(() => {
     if (platform === "ios") {
-      return "Safari → Поделиться → На экран Домой";
+      return "Safari → Поделиться → На экран Домой.";
     }
 
     if (promptEvent) {
-      return "Откроется как отдельное приложение.";
+      return "Запуск без адресной строки, как приложение.";
     }
 
-    return "Открой ссылку в Safari или Chrome.";
+    return "Открой ссылку в Chrome или Safari.";
   }, [platform, promptEvent]);
 
   if (!isMobile || isStandalone || !isVisible) {
@@ -118,14 +118,14 @@ export function InstallPrompt() {
   }
 
   return (
-    <div className="fixed inset-0 z-40 flex items-end justify-center bg-[rgba(16,33,43,0.58)] p-4 backdrop-blur-[2px]">
-      <div className="w-full max-w-[406px] rounded-[34px] bg-[linear-gradient(180deg,rgba(255,248,241,0.98),rgba(247,238,227,0.96))] p-5 shadow-[0_24px_80px_rgba(16,33,43,0.28)]">
-        <div className="flex items-start justify-between gap-3">
+    <div className="fixed inset-0 z-40 flex items-end justify-center bg-[rgba(16,26,32,0.5)] p-4 backdrop-blur-[3px]">
+      <div className="w-full max-w-[406px] rounded-[30px] bg-[var(--color-panel-solid)] p-4 shadow-[0_24px_80px_rgba(16,26,32,0.28)]">
+        <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-[0.68rem] uppercase tracking-[0.34em] text-[var(--color-muted)]">
-              Install
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[var(--color-muted)]">
+              PWA
             </p>
-            <h2 className="mt-3 max-w-[15rem] font-display text-3xl uppercase leading-none text-[var(--color-ink)]">
+            <h2 className="mt-1 max-w-[15rem] text-2xl font-black leading-none text-[var(--color-ink)]">
               {title}
             </h2>
           </div>
@@ -134,14 +134,14 @@ export function InstallPrompt() {
             type="button"
             onClick={() => setIsVisible(false)}
             aria-label="Закрыть"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-xl text-[var(--color-ink)] shadow-[0_8px_20px_rgba(16,33,43,0.08)]"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-xl font-bold text-[var(--color-ink)] shadow-[0_8px_20px_rgba(16,26,32,0.08)]"
           >
             ×
           </button>
         </div>
 
-        <div className="mt-4 rounded-[28px] bg-[var(--color-ink)] p-4 text-white">
-          <p className="text-sm leading-6 text-white/90">{description}</p>
+        <div className="mt-4 rounded-[24px] bg-[var(--color-ink)] p-4 text-white">
+          <p className="text-sm font-medium leading-6 text-white/90">{description}</p>
 
           <div className="mt-4 grid grid-cols-3 gap-2 text-[0.72rem]">
             <StepCard number="1" text="Открой" />
@@ -180,7 +180,7 @@ export function InstallPrompt() {
 
                 setPromptEvent(null);
               }}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--color-clay)] px-5 text-sm font-semibold text-white"
+              className="btn-primary"
             >
               Установить
             </button>
@@ -189,7 +189,7 @@ export function InstallPrompt() {
           <button
             type="button"
             onClick={() => setIsVisible(false)}
-            className="inline-flex h-12 items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-5 text-sm font-semibold text-[var(--color-ink)]"
+            className="btn-secondary"
           >
             Позже
           </button>
@@ -202,7 +202,7 @@ export function InstallPrompt() {
 function StepCard({ number, text }: { number: string; text: string }) {
   return (
     <div className="rounded-2xl bg-white/8 px-3 py-3">
-      <p className="font-display text-xl leading-none text-white">{number}</p>
+      <p className="text-xl font-black leading-none text-white">{number}</p>
       <p className="mt-2 text-white/86">{text}</p>
     </div>
   );

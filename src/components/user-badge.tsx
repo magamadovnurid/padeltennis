@@ -9,7 +9,7 @@ export function UserBadge() {
 
   if (!isReady) {
     return (
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-panel)] text-xs font-semibold text-[var(--color-muted)]">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/70 text-xs font-black text-[var(--color-muted)]">
         ...
       </div>
     );
@@ -19,7 +19,7 @@ export function UserBadge() {
     return (
       <Link
         href="/auth"
-        className="inline-flex h-12 items-center justify-center rounded-2xl bg-[var(--color-ink)] px-4 text-sm font-semibold text-white"
+        className="badge-login"
       >
         Войти
       </Link>
@@ -29,7 +29,7 @@ export function UserBadge() {
   return (
     <Link
       href="/profile"
-      className="flex h-12 min-w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(227,100,61,1),rgba(12,124,89,1))] px-4 font-display text-2xl uppercase text-white"
+      className="badge-player"
     >
       {session.initials}
     </Link>

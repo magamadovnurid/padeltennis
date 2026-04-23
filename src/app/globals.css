@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6efe5;
-  --foreground: #10212b;
-  --color-sand: #f6efe5;
-  --color-panel: #fff8f1;
-  --color-panel-strong: rgba(255, 248, 241, 0.92);
-  --color-ink: #10212b;
-  --color-court: #0c7c59;
-  --color-court-soft: rgba(12, 124, 89, 0.12);
-  --color-court-ink: #084e3a;
-  --color-clay: #e3643d;
-  --color-clay-soft: rgba(227, 100, 61, 0.14);
-  --color-clay-ink: #972f11;
-  --color-muted: #4c5a64;
-  --color-line: rgba(16, 33, 43, 0.12);
+  --background: #f3eee6;
+  --foreground: #101a20;
+  --color-sand: #f3eee6;
+  --color-panel: rgba(255, 250, 242, 0.78);
+  --color-panel-solid: #fffaf2;
+  --color-panel-strong: rgba(255, 250, 242, 0.9);
+  --color-ink: #101a20;
+  --color-court: #0b7457;
+  --color-court-soft: rgba(11, 116, 87, 0.12);
+  --color-court-ink: #063f31;
+  --color-clay: #e75f35;
+  --color-clay-soft: rgba(231, 95, 53, 0.14);
+  --color-clay-ink: #8c270f;
+  --color-muted: #58656d;
+  --color-line: rgba(16, 26, 32, 0.12);
+  --shadow-soft: 0 14px 36px rgba(16, 26, 32, 0.08);
+  --shadow-lift: 0 20px 54px rgba(16, 26, 32, 0.14);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
 }
@@ -31,24 +34,22 @@
 }
 
 html {
-  background:
-    radial-gradient(circle at top, rgba(227, 100, 61, 0.2), transparent 34%),
-    linear-gradient(180deg, #f8f1e6 0%, #f4ede3 35%, #efe6db 100%);
+  background: #f3eee6;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 15%, rgba(12, 124, 89, 0.12), transparent 28%),
-    radial-gradient(circle at 85% 0%, rgba(227, 100, 61, 0.16), transparent 24%),
-    linear-gradient(180deg, #f8f1e6 0%, #f4ede3 100%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.56) 0 25%, transparent 25% 100%) 0 0 / 26px 26px,
+    radial-gradient(circle at 18% 0%, rgba(231, 95, 53, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(11, 116, 87, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7f1e8 0%, #efe7dc 100%);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -56,6 +57,142 @@ button,
 input,
 textarea {
   font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-card,
+.app-row {
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.app-card {
+  border-radius: 28px;
+}
+
+.app-row {
+  border-radius: 24px;
+}
+
+.ui-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0 10px;
+  color: var(--color-ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ui-chip--green {
+  border-color: rgba(11, 116, 87, 0.2);
+  background: rgba(11, 116, 87, 0.12);
+  color: var(--color-court-ink);
+}
+
+.ui-chip--orange {
+  border-color: rgba(231, 95, 53, 0.22);
+  background: rgba(231, 95, 53, 0.14);
+  color: var(--color-clay-ink);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-dark,
+.btn-ghost,
+.btn-mini-primary,
+.btn-mini-dark,
+.badge-login,
+.badge-player {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-dark,
+.btn-ghost {
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0 18px;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.btn-primary {
+  background: var(--color-clay);
+  color: white;
+  box-shadow: 0 12px 28px rgba(231, 95, 53, 0.2);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-ink);
+}
+
+.btn-dark {
+  background: var(--color-ink);
+  color: white;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+}
+
+.btn-mini-primary,
+.btn-mini-dark {
+  height: 40px;
+  min-width: 40px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 0 16px;
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: white;
+}
+
+.btn-mini-primary {
+  background: var(--color-clay);
+}
+
+.btn-mini-dark {
+  background: var(--color-ink);
+}
+
+.badge-login,
+.badge-player {
+  height: 44px;
+  border-radius: 16px;
+  padding: 0 16px;
+  font-weight: 900;
+  color: white;
+}
+
+.badge-login {
+  background: var(--color-ink);
+  font-size: 0.875rem;
+}
+
+.badge-player {
+  min-width: 44px;
+  background: var(--color-clay);
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 ::selection {

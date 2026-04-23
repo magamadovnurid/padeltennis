@@ -72,7 +72,7 @@ export function SessionProvider({
         provider: "email",
         city: "Москва",
         level: "3.5",
-        side: "Right",
+        side: "Правая",
         rating: 1240,
         initials: buildInitials(normalizedName),
       });
@@ -87,7 +87,7 @@ export function SessionProvider({
       provider: "max",
       city: "Москва",
       level: "4.0",
-      side: "Left",
+      side: "Левая",
       rating: 1315,
       initials: "MP",
     });

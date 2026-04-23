@@ -1,44 +1,46 @@
 export const keyStats = [
-  { label: "матчи", value: "18" },
-  { label: "турниры", value: "6" },
-  { label: "игроки", value: "420" },
+  { label: "открыто", value: "18" },
+  { label: "сегодня", value: "7" },
+  { label: "игроков", value: "420" },
 ];
 
 export const tournaments = [
   {
     id: "t1",
-    title: "Spring Open Mix",
+    title: "Open Mix",
     city: "Москва",
-    date: "12 апреля · Сб",
+    date: "25 апреля · Сб",
     level: "3.0–4.0",
     club: "Padel Friends",
     format: "Mix",
   },
   {
     id: "t2",
-    title: "City Ladder Finals",
+    title: "City Ladder",
     city: "Санкт-Петербург",
-    date: "14 апреля · Пн",
+    date: "28 апреля · Вт",
     level: "4.0+",
     club: "North Padel Club",
     format: "2x2",
   },
   {
     id: "t3",
-    title: "Sunday Rookie Cup",
+    title: "Rookie Cup",
     city: "Сочи",
-    date: "20 апреля · Вс",
+    date: "3 мая · Вс",
     level: "Beginner",
     club: "Black Sea Padel",
-    format: "Round-robin",
+    format: "Americano",
   },
 ];
+
+export type Tournament = (typeof tournaments)[number];
 
 export const friendlyMatches = [
   {
     id: "m1",
     city: "Москва",
-    club: "Luzhniki Indoor Court 2",
+    club: "Лужники · корт 2",
     time: "Сегодня · 20:30",
     level: "3.0–3.5",
     surface: "Индор",
@@ -48,7 +50,7 @@ export const friendlyMatches = [
   {
     id: "m2",
     city: "Москва",
-    club: "West Side Padel Arena",
+    club: "West Side Arena",
     time: "Завтра · 09:00",
     level: "4.0",
     surface: "Индор",
@@ -58,7 +60,7 @@ export const friendlyMatches = [
   {
     id: "m3",
     city: "Сочи",
-    club: "Sea Breeze Club",
+    club: "Sea Breeze",
     time: "Пятница · 19:00",
     level: "2.5–3.0",
     surface: "Открытый",
@@ -67,13 +69,15 @@ export const friendlyMatches = [
   },
 ];
 
+export type FriendlyMatch = (typeof friendlyMatches)[number];
+
 export const leaderboard = [
   {
     id: "p1",
     name: "Анна Воронцова",
     initials: "АВ",
     city: "Москва",
-    side: "Left",
+    side: "Левая",
     rating: 1488,
     winRate: "76%",
   },
@@ -82,7 +86,7 @@ export const leaderboard = [
     name: "Дмитрий Нестеров",
     initials: "ДН",
     city: "Сочи",
-    side: "Right",
+    side: "Правая",
     rating: 1462,
     winRate: "71%",
   },
@@ -91,7 +95,7 @@ export const leaderboard = [
     name: "Михаил Орлов",
     initials: "МО",
     city: "Казань",
-    side: "Left",
+    side: "Левая",
     rating: 1440,
     winRate: "67%",
   },
@@ -100,7 +104,7 @@ export const leaderboard = [
     name: "Елена Карпова",
     initials: "ЕК",
     city: "Санкт-Петербург",
-    side: "Right",
+    side: "Правая",
     rating: 1424,
     winRate: "66%",
   },
